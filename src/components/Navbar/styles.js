@@ -30,7 +30,7 @@ export default makeStyles((theme) => ({
     },
       },
       heading: {
-        color: theme.palette.primary.main,
+        color: "white",
         textDecoration: 'none',
         fontSize: '2em',
         fontWeight: 300,
