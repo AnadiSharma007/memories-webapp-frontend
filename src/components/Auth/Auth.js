@@ -10,7 +10,7 @@ const Auth = () => {
 
   const [showPassword, setShowPassword] = useState(false);
 
-  const isSignUp = true;
+  const [isSignUp, setIsSignUp] = useState(false);
 
   const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);
 
@@ -20,6 +20,11 @@ const Auth = () => {
 
   const handleChange = () => {
 
+  }
+
+  const changeMode = () => {
+      setIsSignUp((prevIsSignUp) => !prevIsSignUp);
+      handleShowPassword(false);
   }
 
   return (
@@ -44,6 +49,11 @@ const Auth = () => {
         <Button type='submit' fullWidth variant='contained' color='primary' className={classes.submit}>
           {isSignUp ? 'Sign Up' : 'Sign In'}
           </Button>
+          <Grid container justify='flex-end'>
+            <Grid item>
+              <Button onClick={changeMode}>{ isSignUp ? "Already have an accout? Sign In" : "Don't have an account? Sign Up"}</Button>
+            </Grid>
+          </Grid>
       </form>
       </Paper>
     </Container>
