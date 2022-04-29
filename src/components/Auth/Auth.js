@@ -8,6 +8,7 @@ import useStyles from './styles';
 import Input from './Input';
 import Icon from './icon';
 import { AUTH } from '../../constants/actionTypes';
+import { signup, signin} from '../../actions/auth'
 
 const Auth = () => {
 
@@ -16,18 +17,36 @@ const Auth = () => {
 
   const history = useHistory();
 
+  const initialState = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  }
+
   const [showPassword, setShowPassword] = useState(false);
 
   const [isSignUp, setIsSignUp] = useState(false);
 
+  const [formData, setFormData] = useState(initialState);
+
   const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
+    if(isSignUp){
+      dispatch(signup(formData, history))
+    }
+    else{
+      dispatch(signin(formData, history))
+
+    }
   }
 
-  const handleChange = () => {
-
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
   const changeMode = () => {
@@ -64,8 +83,8 @@ const Auth = () => {
         <Grid container spacing={2}>
           { isSignUp && (
             <>
-                <Input name='firstname' label='First Name' handleChange={handleChange} autoFocus half/>
-                <Input name='lastname' label='Last Name' handleChange={handleChange}  half/>
+                <Input name='firstName' label='First Name' handleChange={handleChange} autoFocus half/>
+                <Input name='lastName' label='Last Name' handleChange={handleChange}  half/>
             </>
           )}
           <Input name="email" label="Email Address" handleChange={handleChange} type="email"/>
