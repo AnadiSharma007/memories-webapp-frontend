@@ -49,9 +49,9 @@ const Auth = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const changeMode = () => {
+  const switchMode = () => {
       setIsSignUp((prevIsSignUp) => !prevIsSignUp);
-      handleShowPassword(false);
+      setShowPassword(false);
   }
   
   const googleSuccess = async (res) => {
@@ -107,7 +107,7 @@ const Auth = () => {
         />
           <Grid container justifyContent='flex-end'>
             <Grid item>
-              <Button onClick={changeMode}>{ isSignUp ? "Already have an accout? Sign In" : "Don't have an account? Sign Up"}</Button>
+              <Button onClick={switchMode}>{ isSignUp ? "Already have an accout? Sign In" : "Don't have an account? Sign Up"}</Button>
             </Grid>
           </Grid>
       </form>
