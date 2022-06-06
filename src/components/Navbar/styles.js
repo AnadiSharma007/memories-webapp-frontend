@@ -30,7 +30,7 @@ export default makeStyles((theme) => ({
     },
       },
       heading: {
-        color: "white",
+        color: "#2BB4F3",
         textDecoration: 'none',
         fontSize: '2em',
         fontWeight: 300,
@@ -64,6 +64,7 @@ export default makeStyles((theme) => ({
       userName: {
         display: 'flex',
         alignItems: 'center',
+        color: 'white',
         textAlign: 'center',
       },
       brandContainer: {
