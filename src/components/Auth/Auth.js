@@ -103,7 +103,7 @@ const Auth = () => {
           )}
           onSuccess={googleSuccess}
           onFailure={googleFailure}
-          cookiePolicy="single_host_origin"
+          cookiePolicy="https://memories-webapp-frontend.vercel.app/auth"
         />
           <Grid container justifyContent='flex-end'>
             <Grid item>
