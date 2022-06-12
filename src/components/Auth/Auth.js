@@ -67,8 +67,8 @@ const Auth = () => {
     }
   }  
 
-  const googleFailure = () => {
-    console.log("Google Sign Up Failes. Try again later.")
+  const googleFailure = (response) => {
+    console.log(response)
   } 
 
 
